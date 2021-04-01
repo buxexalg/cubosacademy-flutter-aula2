@@ -13,21 +13,9 @@ class MyApp extends StatelessWidget {
       Expanded(
           child: Container(
         child: Column(children: [
-          Container(
-            color: Colors.white,
-            height: 80,
-            margin: EdgeInsets.all(40),
-          ),
-          Container(
-            color: Colors.white,
-            height: 80,
-            margin: EdgeInsets.all(40),
-          ),
-          Container(
-            color: Colors.white,
-            height: 80,
-            margin: EdgeInsets.all(40),
-          )
+          RetangularContainer(cor: Colors.white),
+          RetangularContainer(cor: Colors.white),
+          RetangularContainer(cor: Colors.white),
         ]),
       )),
       Container(
@@ -36,12 +24,38 @@ class MyApp extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(height: 50, width: 50, color: Colors.green),
-            Container(height: 50, width: 50, color: Colors.yellow),
-            Container(height: 50, width: 50, color: Colors.red),
+            ColoredContainer(cor: Colors.green),
+            ColoredContainer(cor: Colors.yellow),
+            ColoredContainer(cor: Colors.red),
           ],
         ),
       )
     ]));
+  }
+}
+
+class RetangularContainer extends StatelessWidget {
+  final Color cor;
+
+  RetangularContainer({Key key, this.cor}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: cor,
+      height: 80,
+      margin: EdgeInsets.all(40),
+    );
+  }
+}
+
+class ColoredContainer extends StatelessWidget {
+  final Color cor;
+
+  ColoredContainer({Key key, this.cor}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(height: 50, width: 50, color: cor);
   }
 }
